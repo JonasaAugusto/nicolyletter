@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para Nicoly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .carta {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff758c;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .assinatura {
+            text-align: right;
+            font-style: italic;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            background: #ff758c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background: #ff7eb3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #foto-secreta {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 414px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .carta {
+                padding: 15px;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            button {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="carta">
+        <h1>Para Nicoly 💖</h1>
+        <p>Desde que nos conhecemos, tenho me apaixonado mais a cada dia por você. Nicoly, me divirto todos os dias ao seu lado. Lembro-me de quando você me disse: “Quero viver muitas coisas com você ainda”, e isso me reconfortou demais. Saiba que também quero muito viver coisas diferentes, reviver momentos importantes e criar novas memórias.</p>
+        <p>Quero que saiba que amo sua companhia, amo seu empenho em me agradar e amo sua disposição em estar presente para mim. Sua disposição em ser amiga dos meus pais também me agrada de uma forma que não consigo mensurar. Sinto que nossa relação se tornou fácil, não porque seja fácil, mas porque nos esforçamos para torná-la leve. Resolvemos nossas questões de forma simples e não deixamos os problemas crescerem, o que me faz muito bem.</p>
+        <p>Obrigado por ser essa princesa e por estar presente na minha vida todos os dias. Que Deus te abençoe com todas as sortes de bênçãos e que você tenha um futuro profissional brilhante. Quero acompanhar tudo de perto. Você já teve seu primeiro mês de faculdade, e, mesmo havendo muito pela frente, quero estar ao seu lado nas suas felicidades, nos seus surtos acadêmicos (também passo por isso quase sempre) e nos seus estudos.</p>
+        <p>Amo seus pais, o carinho deles, e amo você também. Vamos com calma, por favor.</p>
+        <p class="assinatura">Com todo o meu carinho,<br>Jonas Augusto</p>
+
+        <button onclick="toggleFoto()">Botãozinho da surpresa rs</button>
+        <img id="foto-secreta" src="us_on_mirror.jpg" alt="us" class="hidden">
+    </div>
+
+    <script>
+        function toggleFoto() {
+            const foto = document.getElementById('foto-secreta');
+            if (foto.classList.contains('hidden')) {
+                foto.classList.remove('hidden');
+            } else {
+                foto.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
