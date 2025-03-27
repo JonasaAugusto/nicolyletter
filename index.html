@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -203,7 +204,7 @@
                     <br>
                     <p>Quero que saiba que amo sua companhia, amo seu empenho em me agradar e amo sua disposição em estar presente para mim. Sua disposição em ser amiga dos meus pais também me agrada de uma forma que não consigo mensurar. Sinto que nossa relação se tornou fácil, não porque seja fácil, mas porque nos esforçamos para torná-la leve. Resolvemos nossas questões de forma simples e não deixamos os problemas crescerem, o que me faz muito bem.</p>
                     <br>
-                    <p>Obrigado por ser essa princesa e por estar presente na minha vida todos os dias. Que Deus te abençoe com todas as sortes de bênçãos e que você tenha um futuro profissional brilhante. Quero acompanhar tudo de perto. Você já teve seu primeiro mês de faculdade, e, mesmo havendo muito pela frente, quero estar ao seu lado nas suas felicidades, nos seus surtos acadêmicos (também passo por isso quase sempre) e nos seus estudos.</p>
+                    <p>Obrigado por ser essa princesa e por estar presente na minha vida todos os dias. Que Deus te abençoe com todas as sortes de bênçãos e que você tenha um futuro profissional brilhante. Quero acompanhar tudo de perto. Você já teve seu primeiro mês de faculdade, e, mesmo havendo muito pela frente, quero estar ao seu lado nas suas felicidades, nos seus surtos acadêmicos (também passo por isso quase sempre) e nos seus estudos. Amo seus pais, o carinho deles, e amo você também, vamo com calma pfv.</p>
                 `,
                 hasImage: true,
                 imagePath: "us_on_mirror.jpg"
@@ -220,15 +221,15 @@
         const musicPlayer = document.getElementById('backgroundMusic');
         musicPlayer.volume = 0.3;
 
-        document.addEventListener('click', function() {
+        document.addEventListener('click', function () {
             musicPlayer.play().then(() => {
                 document.getElementById('musicToggleIcon').classList.remove('fa-music');
                 document.getElementById('musicToggleIcon').classList.add('fa-pause');
             });
         }, { once: true });
 
-        window.addEventListener('popstate', function() {
-            if(document.getElementById('fullLetter').style.display === 'block') {
+        window.addEventListener('popstate', function () {
+            if (document.getElementById('fullLetter').style.display === 'block') {
                 returnToList();
             }
         });
@@ -279,24 +280,25 @@
             } else {
                 imageElement.classList.add('hidden');
             }
-            
-            history.pushState({letterOpen: true}, '');
+
+            history.pushState({ letterOpen: true }, '');
         }
 
         function returnToList() {
             document.getElementById('lettersList').style.display = 'block';
             document.getElementById('fullLetter').style.display = 'none';
-            
+
             history.replaceState({}, '', window.location.pathname);
         }
 
-        window.onload = function() {
+        window.onload = function () {
             loadLetters();
-            
-            if(performance.navigation.type === 2) {
+
+            if (performance.navigation.type === 2) {
                 returnToList();
             }
         };
     </script>
 </body>
+
 </html>
