@@ -3,123 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta para Nicoly</title>
+    <title>Cartas de Amor</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: all 0.3s ease;
         }
 
         body {
-            background: linear-gradient(to right, #ff758c, #ff7eb3);
-            font-family: 'Arial', sans-serif;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Cormorant Garamond', serif;
+            background: #f9f5f2;
+            color: #5a4a42;
             min-height: 100vh;
             padding: 20px;
-        }
-
-        .carta {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            width: 100%;
-            text-align: justify;
+            font-size: 18px;
             line-height: 1.6;
         }
 
-        h1 {
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f8e9e1;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e8c4b8;
+        }
+
+        .header {
             text-align: center;
-            color: #ff758c;
-            font-size: 2.5em;
+            color: #d29d8b;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            font-weight: 300;
+        }
+
+        .letters-list {
+            display: block;
+        }
+
+        .letter-item {
+            background: #f0d5c8;
+            padding: 20px;
             margin-bottom: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e8c4b8;
+            font-size: 1.1rem;
         }
 
-        p {
-            margin-bottom: 15px;
-            font-size: 1em;
+        .letter-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: #e8c4b8;
         }
 
-        .assinatura {
-            text-align: right;
-            font-style: italic;
-            margin-top: 20px;
+        .letter-date {
+            font-size: 1rem;
+            color: #9a7d72;
             font-weight: bold;
         }
 
-        button {
-            display: block;
-            margin: 20px auto;
-            background: #ff758c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
+        .letter-title {
+            font-size: 1.3rem;
+            margin: 10px 0;
+            color: #5a4a42;
         }
 
-        button:hover {
-            background: #ff7eb3;
+        .letter-full {
+            display: none;
+            padding: 20px;
+        }
+
+        .letter-content {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .letter-image {
+            width: 60%;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d29d8b;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #9a7d72;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 100;
+            border: 1px solid #d29d8b;
+        }
+
+        .music-icon {
+            font-size: 20px;
+            color: #d29d8b;
         }
 
         .hidden {
             display: none;
         }
 
-        #foto-secreta {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 414px) {
-            h1 {
-                font-size: 1.8em;
+        @media only screen and (max-width: 414px) {
+            body {
+                padding: 15px 10px;
+                font-size: 16px;
             }
 
-            .carta {
+            .container {
+                padding: 20px;
+            }
+
+            .header {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .letter-item {
                 padding: 15px;
+                font-size: 1rem;
             }
 
-            p {
-                font-size: 0.9em;
+            .letter-title {
+                font-size: 1.1rem;
             }
 
-            button {
-                width: 100%;
-                padding: 15px;
+            .music-control {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .letter-image {
+                width: 80%;
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="carta">
-        <h1>Para Nicoly 💖</h1>
-        <p>Desde que nos conhecemos, tenho me apaixonado mais a cada dia por você. Nicoly, me divirto todos os dias ao seu lado. Lembro-me de quando você me disse: “Quero viver muitas coisas com você ainda”, e isso me reconfortou demais. Saiba que também quero muito viver coisas diferentes, reviver momentos importantes e criar novas memórias.</p>
-        <p>Quero que saiba que amo sua companhia, amo seu empenho em me agradar e amo sua disposição em estar presente para mim. Sua disposição em ser amiga dos meus pais também me agrada de uma forma que não consigo mensurar. Sinto que nossa relação se tornou fácil, não porque seja fácil, mas porque nos esforçamos para torná-la leve. Resolvemos nossas questões de forma simples e não deixamos os problemas crescerem, o que me faz muito bem.</p>
-        <p>Obrigado por ser essa princesa e por estar presente na minha vida todos os dias. Que Deus te abençoe com todas as sortes de bênçãos e que você tenha um futuro profissional brilhante. Quero acompanhar tudo de perto. Você já teve seu primeiro mês de faculdade, e, mesmo havendo muito pela frente, quero estar ao seu lado nas suas felicidades, nos seus surtos acadêmicos (também passo por isso quase sempre) e nos seus estudos.</p>
-        <p>Amo seus pais, o carinho deles, e amo você também. Vamos com calma, por favor.</p>
-        <p class="assinatura">Com todo o meu carinho,<br>Jonas Augusto</p>
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-        <button onclick="toggleFoto()">Botãozinho da surpresa rs</button>
-        <img id="foto-secreta" src="us_on_mirror.jpg" alt="us" class="hidden">
+    <div class="container">
+        <div id="lettersList" class="letters-list">
+            <h1 class="header">📜 Minhas Cartas para Você 💖</h1>
+            <div id="lettersContainer"></div>
+        </div>
+
+        <div id="fullLetter" class="letter-full">
+            <h1 id="letterFullTitle"></h1>
+            <div class="letter-date" id="letterFullDate"></div>
+            <div class="letter-content" id="letterFullContent"></div>
+            <img id="letterImage" class="letter-image hidden" alt="Foto especial">
+            <a href="#" class="back-button" onclick="returnToList()">← Voltar</a>
+        </div>
     </div>
-
+    <div class="music-control" onclick="toggleMusic()">
+        <i id="musicToggleIcon" class="fas fa-pause"></i>
+    </div>
     <script>
-        function toggleFoto() {
-            const foto = document.getElementById('foto-secreta');
-            if (foto.classList.contains('hidden')) {
-                foto.classList.remove('hidden');
+        const lettersData = [
+            {
+                id: 1,
+                title: "Nosso Primeiro Mês Juntos",
+                date: "17 de Março de 2025",
+                content: `
+                    <p>Desde que nos conhecemos, tenho me apaixonado mais a cada dia por você. Nicoly, me divirto todos os dias ao seu lado. Lembro-me de quando você me disse: "Quero viver muitas coisas com você ainda", e isso me reconfortou demais. Saiba que também quero muito viver coisas diferentes, reviver momentos importantes e criar novas memórias.</p>
+                    <br>
+                    <p>Quero que saiba que amo sua companhia, amo seu empenho em me agradar e amo sua disposição em estar presente para mim. Sua disposição em ser amiga dos meus pais também me agrada de uma forma que não consigo mensurar. Sinto que nossa relação se tornou fácil, não porque seja fácil, mas porque nos esforçamos para torná-la leve. Resolvemos nossas questões de forma simples e não deixamos os problemas crescerem, o que me faz muito bem.</p>
+                    <br>
+                    <p>Obrigado por ser essa princesa e por estar presente na minha vida todos os dias. Que Deus te abençoe com toda a sorte de bênçãos e que você tenha um futuro profissional brilhante. Quero acompanhar tudo de perto. Você já teve seu primeiro mês de faculdade, e, mesmo havendo muito pela frente, quero estar ao seu lado nas suas felicidades, nos seus surtos acadêmicos (também passo por isso quase sempre) e nos seus estudos.</p>
+                `,
+                hasImage: true,
+                imagePath: "us_on_mirror.jpg"
+            },
+            {
+                id: 2,
+                title: "-----------",
+                date: "VAZIO",
+                content: ``,
+                hasImage: false
+            }
+        ];
+
+        const musicPlayer = document.getElementById('backgroundMusic');
+        musicPlayer.volume = 0.3;
+
+        // Configuração definitiva para autoplay
+        document.addEventListener('click', function() {
+            musicPlayer.play().then(() => {
+                document.getElementById('musicToggleIcon').classList.remove('fa-music');
+                document.getElementById('musicToggleIcon').classList.add('fa-pause');
+            });
+        }, { once: true });
+
+        function toggleMusic() {
+            const musicIcon = document.getElementById('musicToggleIcon');
+            if (musicPlayer.paused) {
+                musicPlayer.play();
+                musicIcon.classList.remove('fa-music', 'fa-play');
+                musicIcon.classList.add('fa-pause');
             } else {
-                foto.classList.add('hidden');
+                musicPlayer.pause();
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-play');
             }
         }
+
+        function loadLetters() {
+            const container = document.getElementById('lettersContainer');
+            container.innerHTML = '';
+
+            lettersData.forEach(letter => {
+                const letterHTML = `
+                    <div class="letter-item" onclick="openLetter(${letter.id})">
+                        <div class="letter-date">${letter.date}</div>
+                        <div class="letter-title">${letter.title}</div>
+                    </div>
+                `;
+                container.innerHTML += letterHTML;
+            });
+        }
+
+        function openLetter(letterId) {
+            const letter = lettersData.find(l => l.id === letterId);
+
+            document.getElementById('lettersList').style.display = 'none';
+            document.getElementById('fullLetter').style.display = 'block';
+
+            document.getElementById('letterFullTitle').textContent = letter.title;
+            document.getElementById('letterFullDate').textContent = letter.date;
+            document.getElementById('letterFullContent').innerHTML = letter.content;
+
+            const imageElement = document.getElementById('letterImage');
+
+            if (letter.hasImage) {
+                imageElement.src = letter.imagePath;
+                imageElement.classList.remove('hidden');
+            } else {
+                imageElement.classList.add('hidden');
+            }
+        }
+
+        function returnToList() {
+            document.getElementById('lettersList').style.display = 'block';
+            document.getElementById('fullLetter').style.display = 'none';
+        }
+
+        window.onload = function() {
+            loadLetters();
+        };
     </script>
 </body>
 </html>
