@@ -166,6 +166,46 @@
                 width: 80%;
             }
         }
+
+        .photo-button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background: #d29d8b;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .photo-button:hover {
+            background: #b58a7a;
+            transform: translateY(-2px);
+        }
+
+        .photo-container {
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .photo-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #7a5e54;
+            font-size: 1rem;
+        }
+
+        @media only screen and (max-width: 414px) {
+            .photo-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
@@ -205,21 +245,63 @@
                     <p>Quero que saiba que amo sua companhia, amo seu empenho em me agradar e amo sua disposição em estar presente para mim. Sua disposição em ser amiga dos meus pais também me agrada de uma forma que não consigo mensurar. Sinto que nossa relação se tornou fácil, não porque seja fácil, mas porque nos esforçamos para torná-la leve. Resolvemos nossas questões de forma simples e não deixamos os problemas crescerem, o que me faz muito bem.</p>
                     <br>
                     <p>Obrigado por ser essa princesa e por estar presente na minha vida todos os dias. Que Deus te abençoe com todas as sortes de bênçãos e que você tenha um futuro profissional brilhante. Quero acompanhar tudo de perto. Você já teve seu primeiro mês de faculdade, e, mesmo havendo muito pela frente, quero estar ao seu lado nas suas felicidades, nos seus surtos acadêmicos (também passo por isso quase sempre) e nos seus estudos. Amo seus pais, o carinho deles, e amo você também, vamo com calma pfv.</p>
-                `,
+                    <br>
+                    <p>Te amo, hoje e sempre.</p>
+                    <br>
+                    <p>Jonas Augusto</p>
+                    `,
                 hasImage: true,
                 imagePath: "us_on_mirror.jpg"
             },
             {
                 id: 2,
-                title: "-----------",
-                date: "VAZIO",
-                content: ``,
+                title: "Minha Nic",
+                date: "31 de Março de 2025",
+                content: `
+                    <p>Se eu pudesse resumir em palavras tudo o que sinto, talvez elas nunca fossem suficientes, mas quero que você guarde isso no seu coração: eu te prometo. Prometo que, enquanto estiver ao meu alcance, você nunca vai sofrer, de forma alguma. Pode ter certeza absoluta disso.</p>
+                    <br>
+                    <p>Amor, eu te pedi em namoro, e mal caiu a ficha de que agora você realmente faz parte da minha vida. Vou fazer o possível e o impossível para ficarmos juntos. Quero te fazer feliz e te fazer bem, quero te dar certezas e não dúvidas, seguranças e não inseguranças, paz e não tormentos, sorrisos e não lágrimas.</p>
+                    <br>
+                    <p>Não tenha medo de ser feliz, de curtir cada momento ao meu lado. O que estamos vivendo não é algo passageiro, não é ilusão. É real, é puro e é lindo demais. Cada segundo contigo faz o mundo parecer mais colorido, mais vivo. E saber que você enxerga essa mesma magia me enche de um orgulho e uma gratidão que não cabem no peito.</p>
+                    <br>
+                    <p>Amor, você é oficialmente minha namorada, e eu sou grato por ter me escolhido. Não sou super-herói, eu também erro e sou falho, mas prometo te mostrar que, mesmo falho, eu consigo mostrar acertos dia após dia. E sendo um deles, você!</p>
+                    <br>
+                    <p>Você disse que é uma dádiva ter nascido na mesma época que eu, mas quem ganhou o presente fui eu, amor. Ter você como parte da minha vida é o maior privilégio que eu poderia ter. Você se tornou a melhor parte de mim, e eu quero passar o resto dos dias provando que essa história vale a pena.</p>
+                    <br>
+                    <p>Eu te amo muito, que Jesus nos abençoe, que Ele viva entre nós e seja a direção do nosso relacionamento. Este é só o início de uma longa e linda história.</p>
+                    <br>
+                    <p>Obrigado por cada sorriso, por cada "te amo mais", e por cada vez que você me faz acreditar que o amor pode ser assim — intenso e leve ao mesmo tempo.</p>
+                    <br>
+                    <p>Te amo, hoje e sempre.</p>
+                    <br>
+                    <p>Jonas Augusto</p>
+                    <button class="photo-button" onclick="togglePhoto()">Clique aqui, curiosa.</button>
+                    <div class="photo-container" id="photoContainer">
+                        <img src="us_on_mirror_shopping.jpg" alt="Minha namorada e eu" class="letter-image">
+                        <p class="photo-caption">Nós dois juntos, somos lindos.</p>
+                    </div>
+
+                `,
+
                 hasImage: false
             }
+
         ];
+        function togglePhoto() {
+            const photoContainer = document.getElementById('photoContainer');
+            const photoButton = document.querySelector('.photo-button');
+
+            if (photoContainer.style.display === 'none' || !photoContainer.style.display) {
+                photoContainer.style.display = 'block';
+                photoButton.textContent = 'Fechar';
+            } else {
+                photoContainer.style.display = 'none';
+                photoButton.textContent = 'vc fechou mesmo :(';
+            }
+        }
 
         const musicPlayer = document.getElementById('backgroundMusic');
-        musicPlayer.volume = 0.3;
+        musicPlayer.volume = 0.1;
 
         document.addEventListener('click', function () {
             musicPlayer.play().then(() => {
