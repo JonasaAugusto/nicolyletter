@@ -15,8 +15,10 @@
 
         body {
             font-family: 'Cormorant Garamond', serif;
-            background: #f9f5f2;
-            color: #5a4a42;
+            background: #332c2b;
+            /* Darker, warmer background */
+            color: #e0dcdb;
+            /* Lighter text for contrast */
             min-height: 100vh;
             padding: 20px;
             font-size: 18px;
@@ -26,16 +28,20 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: #f8e9e1;
+            background: #4a3b39;
+            /* Slightly lighter container */
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e8c4b8;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            /* More pronounced shadow */
+            border: 1px solid #5e4a47;
+            /* Darker border */
         }
 
         .header {
             text-align: center;
-            color: #d29d8b;
+            color: #f08080;
+            /* Soft red for love */
             margin-bottom: 25px;
             font-size: 2.2rem;
             font-weight: 300;
@@ -46,25 +52,33 @@
         }
 
         .letter-item {
-            background: #f0d5c8;
+            background: #5e4a47;
+            /* Darker letter background */
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 10px;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e8c4b8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Darker shadow */
+            border: 1px solid #725c58;
+            /* Darker border */
             font-size: 1.1rem;
+            color: #e0dcdb;
+            /* Lighter text */
         }
 
         .letter-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            background: #e8c4b8;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* More pronounced hover shadow */
+            background: #725c58;
+            /* Darker hover background */
         }
 
         .letter-date {
             font-size: 1rem;
-            color: #9a7d72;
+            color: #f08080;
+            /* Red accent for date */
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -72,7 +86,8 @@
         .letter-title {
             font-size: 1.3rem;
             margin: 10px 0;
-            color: #5a4a42;
+            color: #e0dcdb;
+            /* Lighter title text */
         }
 
         .letter-full {
@@ -84,6 +99,8 @@
             line-height: 1.8;
             margin-bottom: 20px;
             font-size: 1.20rem;
+            color: #e0dcdb;
+            /* Lighter content text */
         }
 
         .letter-image {
@@ -91,15 +108,18 @@
             border-radius: 10px;
             margin: 20px auto;
             display: block;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            border: 1px solid #d29d8b;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            /* Darker image shadow */
+            border: 1px solid #f08080;
+            /* Red border for image */
         }
 
         .back-button {
             display: block;
             text-align: center;
             margin-top: 25px;
-            color: #9a7d72;
+            color: #f08080;
+            /* Red for back button */
             font-weight: bold;
             text-decoration: none;
             font-size: 1.1rem;
@@ -109,22 +129,26 @@
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background: white;
+            background: #5e4a47;
+            /* Dark music control background */
             width: 50px;
             height: 50px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            /* Darker music control shadow */
             cursor: pointer;
             z-index: 100;
-            border: 1px solid #d29d8b;
+            border: 1px solid #f08080;
+            /* Red border for music control */
         }
 
         .music-icon {
             font-size: 20px;
-            color: #d29d8b;
+            color: #f08080;
+            /* Red music icon */
         }
 
         .hidden {
@@ -171,19 +195,22 @@
             display: block;
             margin: 20px auto;
             padding: 12px 25px;
-            background: #d29d8b;
+            background: #f08080;
+            /* Red button background */
             color: white;
             border: none;
             border-radius: 25px;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Darker button shadow */
             transition: all 0.3s ease;
         }
 
         .photo-button:hover {
-            background: #b58a7a;
+            background: #d16565;
+            /* Darker red on hover */
             transform: translateY(-2px);
         }
 
@@ -196,7 +223,8 @@
         .photo-caption {
             margin-top: 10px;
             font-style: italic;
-            color: #7a5e54;
+            color: #a9a9a9;
+            /* Lighter caption text */
             font-size: 1rem;
         }
 
@@ -238,7 +266,7 @@
             {
                 id: 1,
                 title: "Nosso Primeiro Mês Juntos",
-                date: "17 de Março de 2025",
+                date: "17 de Março, 2025",
                 content: `
                     <p>Desde que nos conhecemos, tenho me apaixonado mais a cada dia por você. Nicoly, me divirto todos os dias ao seu lado. Lembro-me de quando você me disse: "Quero viver muitas coisas com você ainda", e isso me reconfortou demais. Saiba que também quero muito viver coisas diferentes, reviver momentos importantes e criar novas memórias.</p>
                     <br>
@@ -256,7 +284,7 @@
             {
                 id: 2,
                 title: "Minha Nic",
-                date: "31 de Março de 2025",
+                date: "31 de Março, 2025",
                 content: `
                     <p>Se eu pudesse resumir em palavras tudo o que sinto, talvez elas nunca fossem suficientes, mas quero que você guarde isso no seu coração: eu te prometo. Prometo que, enquanto estiver ao meu alcance, você nunca vai sofrer, de forma alguma. Pode ter certeza absoluta disso.</p>
                     <br>
@@ -288,7 +316,7 @@
             {
                 id: 3,
                 title: "Sem Dúvidas",
-                date: "19 de Abril de 2025",
+                date: "19 de Abril, 2025",
                 content: `
                     <p>Amor,</p>
                     <br>
@@ -310,6 +338,58 @@
                     <div class="photo-container hidden" id="photoContainer">
                         <img src="us_on_park.jpg" alt="parquinho" class="letter-image">
                         <p class="photo-caption">Quando tudo começou a fazer sentido ❤️</p>
+                    </div>
+                `,
+            },
+            {
+                id: 4,
+                title: "Um tanto quanto incomum",
+                date: "21 de Agosto, 2025",
+                content: `
+                    <p>Nicoly,</p>
+                    <br>
+                    <p>Eu te amo com todas as minhas forças. Digo isso de um jeito simples porque o simples dá conta do essencial. Amar você virou a linha que organiza meus dias. Eu acordo e o mundo faz mais sentido. Eu deito e penso que valeu a pena, mesmo nos dias tortos.
+                        </p>
+                    <br>
+                    <p>Tem algo de escolha e algo de milagre nisso. Escolha porque eu decido por você e por nós, todo dia. Milagre porque, entre tanta gente, a vida cruzou nossos caminhos e fez caber dentro de um abraço tudo que eu procurava sem saber. Eu não quero te vender um conto de fadas. Amor pra mim não é só brilho de começo nem filme com final pronto. Amor é o entre. É o depois. É o que a gente constrói no meio das rotinas, no barulho do trânsito, na fila do mercado, nas conversas que começam bobas e viram profundas. É quando o silêncio fica confortável e, mesmo sem falar, eu sei que você me entende. É quando a gente discorda e aprende a discordar sem se machucar. É cuidado. É paciência. É rir junto de besteira e ser sério quando a coisa pede seriedade.
+                        </p>
+                    <br>
+                    <p>Eu penso no que os filósofos chamam de liberdade e fico com a ideia de que amar é escolher ficar por querer. Eu tenho escolha todos os dias e, em todos eles, eu escolho você. Kierkegaard fala do salto. O meu salto foi perceber que a decisão mais livre que já tomei foi me comprometer contigo, com tudo que você é de bonito e de difícil, porque eu também sou bonito e difícil, e a graça do amor está nesse encontro honesto. Buber fala de relação de Eu e Tu. Com você eu não vivo um jogo, eu vivo um encontro. Não te trato como cenário da minha vida, te reconheço como pessoa inteira diante de mim. Aristóteles fala de amizade como fundamento, e eu entendi que o nosso amor tem essa base boa de parceria, de querer o bem, de torcer um pelo outro não por interesse, mas por alegria de ver o outro florescer.
+                        </p>
+                    <br>
+                    <p>Eu te amo nos dias de vitória, mas eu te amo ainda mais nos dias comuns. Quando a gente só cozinha qualquer coisa, lava a louça batendo papo, faz planos pro fim de semana, ajeita as contas, resolve pepino. A vida real é feita disso e eu quero estar contigo nessa parte que quase ninguém escreve poesia, mas que é justamente onde o amor prova que é amor. Eu quero dividir teto e tempo, sonhos e boletos, coragem e medo. Quero ser teu porto e teu vento, o lugar que te sossega e a voz que te lembra do quanto você é capaz.
+                        </p>
+                    <br>
+                    <p>Até quando eu chego mancando da academia depois de treinar perna, é com você que eu quero rir das minhas manias. Até quando a correria do nosso dia a dia pesa, eu quero ser quem te lembra que a vida também é feita de descanso e leveza. Cada foto e áudio seu mudam o clima do meu dia, e até as conversas mais bobas, cheias de "KKKKKKKK", me provam que a gente não precisa de cenário nenhum além de nós dois pra transformar qualquer rotina em algo especial.
+                        <p/>
+                    <br>
+                    <p>Eu não sei prometer um futuro sem sustos. Sei prometer presença. Prometer que vou te ouvir de verdade, que vou te dizer a verdade com carinho, que vou pedir perdão quando eu errar e vou aprender com isso. Prometer que vou celebrar tuas conquistas como se fossem minhas e cuidar de você quando o mundo pesar. Prometer que vou fazer do nosso relacionamento um lugar seguro para a tua vulnerabilidade e para a minha também. Prometer que não vou deixar a gente virar automático, que vou manter viva a curiosidade de te conhecer mais a cada ano, como quem folheia um livro bom, capítulo por capítulo.
+                        </p>
+                    <br>
+                    <p>Eu te amo no teu riso e nas tuas manias, na forma como você enxerga o que passa batido pros outros, nas palavras e nos gestos, no jeito que você trata o dia com leveza mesmo quando a cabeça está cheia. Te amo pelo que você me ensina sem aula, só vivendo. Com você eu aprendi que amor é verbo. É mandar mensagem boba no meio da tarde. É lembrar de um detalhe que importa. É guardar espaço para o sonho do outro. É proteger sem sufocar. É dar liberdade porque confia. É dar a mão quando a coragem falha. É sentar ao lado e respirar junto até a poeira baixar.
+                        </p>
+                    <br>
+                    <p>Eu também te amo com a consciência da nossa finitude. A vida é breve e isso não me assusta quando estou contigo. Pelo contrário, me dá vontade de viver com qualidade, de gastar bem o tempo, de transformar em memória boa o que a gente vai colecionando. Quero que a nossa história tenha capítulos altos e também planaltos, aquele terreno estável onde a gente caminha junto, sem espetáculo, mas com firmeza. A paixão é o fogo que acende. O amor é o fogo que aquece. Eu quero cuidar desse fogo com paciência de quem sabe que o mais bonito é ele durar.
+                        </p>
+                    <br>
+                    <p>Se um dia a gente tropeçar, que seja tropeço de quem está andando. Eu não vou desistir fácil. Vou chamar pra conversa, pra terapia se precisar, pra rever rota, pra ajustar. Vou escolher o nós antes do orgulho. Vou preferir entender do que vencer debate. Vou lembrar que a pessoa à minha frente é a mesma que eu escolhi amar. O nosso vínculo vale mais do que ter razão numa terça-feira tensa. É nessa hora que o amor se mostra adulto, não pelo peso, mas pela leveza comprometida de quem sabe o que quer construir. Eu não te idealizo. Eu te vejo. E quanto mais eu te vejo, mais eu te amo. Eu te amo no real, por inteiro, sem tentar te encaixar num molde. Eu quero ser teu parceiro pra pensar e pra sentir, pra planejar e pra improvisar, pra trabalhar e pra descansar. 
+                        </p>
+                    <br>
+                    <p>Eu quero envelhecer com você, acumulando dentro de casa coisas úteis e dentro da memória histórias boas. Quero te levar um lanche quando você estiver ocupada, quero dividir playlists, viagens, responsabilidades, feriados, domingos preguiçosos, metas e metas batidas. Quero que a gente seja aquele casal que se olha e ri porque só a gente sabe o que aquele olhar quer dizer.
+                        </p>
+                    <br>
+                    <p>Sei que o amor é também espiritual, porque todo amor verdadeiro nasce em Deus, que é Deus de amor (1 João 4:8). O cuidado, o respeito e a paciência não são apenas frutos do nosso esforço, mas dons que o Espírito Santo cultiva em nós. Eu oro para que o nosso relacionamento espelhe o amor descrito em 1 Coríntios 13: um amor que tudo sofre, tudo crê, tudo espera e tudo suporta. Que eu aprenda contigo a viver Efésios 5:25, amando com entrega, como Cristo amou a igreja. Oro para que eu nunca banalize o privilégio de caminhar ao teu lado, mas que em cada detalhe, no servir, no perdoar, no sustentar, eu saiba honrar-te e refletir a graça do Senhor, lembrando sempre que o amor se torna grande quando espelha o amor de Jesus Cristo.
+                    </p>
+                    <br>
+                    <p>Eu te amo, Nicoly. Com todas as minhas forças, com toda a minha lucidez e com toda a minha vontade de futuro. Te amo no agora que vivemos e no depois que ainda vamos escrever. Se o amor é casa, quero que a nossa tenha luz de manhã, mesa cheia, plantas que crescem, quadros que contam histórias, risadas que ecoam e um quarto onde sempre caiba mais um sonho. Se o amor é caminho, eu vou contigo lado a lado: sem pressa quando a paisagem for bonita, com coragem quando a estrada apertar e com gratidão o tempo todo por ter você comigo.
+                        </p>
+                    <br>
+                    <p>Com amor,</p>
+                    <p>ㅤㅤJonas Augusto</p>
+                    <button class="photo-button" onclick="togglePhoto()">Surpresa</button>
+                    <div class="photo-container hidden" id="photoContainer">
+                        <img src="princesa.png" alt="us" class="letter-image">
+                        <p class="photo-caption">O final feliz da história de conto de fadas é a nossa realidade❤️</p>
                     </div>
                 `,
             }
