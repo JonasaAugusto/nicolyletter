@@ -610,18 +610,45 @@
             const messageEl = document.getElementById('loveMessage');
             
             let current = 0;
-            const target = (name1 === 'jonas' && name2 === 'nicoly') || (name1 === 'nicoly' && name2 === 'jonas') ? 99 : 92 + Math.floor(Math.random() * 8);
+            
+            let target;
+            
+            if ((name1 === 'jonas' && name2 === 'nicoly') || 
+                (name1 === 'nicoly' && name2 === 'jonas')) {
+                target = 100;
+            }
+            else if (name1 === name2 || name1.includes(name2) || name2.includes(name1)) {
+                target = 85 + Math.floor(Math.random() * 10);
+            }
+            else if (name1.length > 3 && name2.length > 3) {
+                target = 60 + Math.floor(Math.random() * 25);
+            }
+            else {
+                target = 30 + Math.floor(Math.random() * 30);
+            }
             
             const counter = setInterval(() => {
                 current += Math.ceil((target - current) / 5);
                 if (current >= target) {
                     current = target;
                     clearInterval(counter);
-                    messageEl.textContent = ["Amor verdadeiro e eterno! 💕", "Conexão divina! ✨", "Feitos um para o outro! 💍", "O destino os uniu! 🌟"][Math.floor(Math.random() * 4)];
-                    createConfetti();
+                    
+                    if (target >= 90) {
+                        messageEl.textContent = ["Amor verdadeiro e eterno! 💕", "Conexão divina! ✨", "Feitos um para o outro! 💍", "O destino os uniu! 🌟"][Math.floor(Math.random() * 4)];
+                    } else if (target >= 70) {
+                        messageEl.textContent = ["Tem potencial! 💫", "Química interessante! 🔥", "Vale a pena investir! 💖", "O amor está no ar! 🌹"][Math.floor(Math.random() * 4)];
+                    } else if (target >= 50) {
+                        messageEl.textContent = ["Pode dar certo com esforço! 💪", "Amizade primeiro? 🤝", "Quem sabe no futuro? 🤔", "Vamos ver no que dá! 😊"][Math.floor(Math.random() * 4)];
+                    } else {
+                        messageEl.textContent = ["Ops... talvez não seja o par ideal 😅", "Amizade já é um bom começo! 🌻", "Cada um no seu quadrado? 😂", "O amor tem seus mistérios... 🔮"][Math.floor(Math.random() * 4)];
+                    }
+                    
+                    if (target >= 85) createConfetti();
                 }
                 resultEl.textContent = current + '%';
             }, 100);
+            
+            // Haptic feedback
             hapticFeedback([100, 50, 100]);
         }
         
