@@ -343,7 +343,7 @@
             },
             {
                 id: 4,
-                title: "Um tanto quanto incomum",
+                title: "Um Tanto Quanto Incomum",
                 date: "21 de Agosto, 2025",
                 content: `
                     <p>Nicoly,</p>
@@ -392,6 +392,14 @@
                         <p class="photo-caption">O final feliz da história de conto de fadas é a nossa realidade❤️</p>
                     </div>
                 `,
+            },
+            {
+                id: 5,
+                title: "Desde Que Te Conheci",
+                date: "17 de Fevereiro, 2026",
+                content: "Veja esta carta especial",
+                hasImage: false,
+                link: "desde.html"
             }
 
         ];
@@ -436,20 +444,31 @@
                 musicIcon.classList.add('fa-play');
             }
         }
-
         function loadLetters() {
             const container = document.getElementById('lettersContainer');
             container.innerHTML = '';
 
             lettersData.forEach(letter => {
                 const letterHTML = `
-                    <div class="letter-item" onclick="openLetter(${letter.id})">
+                    <div class="letter-item" onclick="handleLetterClick(${letter.id})" style="cursor: pointer;">
                         <div class="letter-date">${letter.date}</div>
                         <div class="letter-title">${letter.title}</div>
                     </div>
                 `;
                 container.innerHTML += letterHTML;
             });
+        }
+
+        function handleLetterClick(letterId) {
+            const letter = lettersData.find(l => l.id === letterId);
+
+            // Se tiver link externo, redireciona
+            if (letter.link) {
+                window.location.href = letter.link;
+            } else {
+                // Caso contrário, abre na div normal
+                openLetter(letterId);
+            }
         }
 
         function openLetter(letterId) {
