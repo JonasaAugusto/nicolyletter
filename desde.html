@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Desde Que Te Conheci - Cartas de Amor</title>
+    
     <!-- Bibliotecas de Animação -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
     <style>
         /* ========== SCROLLBAR PERSONALIZADA ========== */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
+        ::-webkit-scrollbar { width: 12px; }
         ::-webkit-scrollbar-track {
             background: rgba(51, 44, 43, 0.6);
             border-radius: 10px;
             border: 1px solid rgba(94, 74, 71, 0.5);
         }
-
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(180deg, #f08080, #d16565);
             border-radius: 10px;
@@ -27,63 +24,38 @@
             box-shadow: 0 0 10px rgba(240, 128, 128, 0.4);
             transition: all 0.3s ease;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(180deg, #ff9999, #f08080);
             box-shadow: 0 0 15px rgba(240, 128, 128, 0.8), 0 0 30px rgba(240, 128, 128, 0.4);
             transform: scale(1.05);
         }
-
         ::-webkit-scrollbar-thumb:active {
             background: linear-gradient(180deg, #d16565, #b54a4a);
             transform: scale(0.95);
         }
-
-        ::-webkit-scrollbar-corner {
-            background: rgba(51, 44, 43, 0.6);
-        }
-
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: #f08080 rgba(51, 44, 43, 0.6);
-        }
-
-        ::-webkit-scrollbar-horizontal {
-            height: 10px;
-        }
-
+        ::-webkit-scrollbar-corner { background: rgba(51, 44, 43, 0.6); }
+        * { scrollbar-width: thin; scrollbar-color: #f08080 rgba(51, 44, 43, 0.6); }
+        ::-webkit-scrollbar-horizontal { height: 10px; }
         ::-webkit-scrollbar-horizontal::-webkit-scrollbar-thumb {
             background: linear-gradient(90deg, #f08080, #d16565);
         }
-
-        .modal-content::-webkit-scrollbar {
-            width: 8px;
-        }
-
+        .modal-content::-webkit-scrollbar { width: 8px; }
         .modal-content::-webkit-scrollbar-track {
             background: rgba(51, 44, 43, 0.8);
             border-radius: 10px;
         }
-
         .modal-content::-webkit-scrollbar-thumb {
             background: linear-gradient(180deg, #f08080, #d16565);
             border-radius: 10px;
             box-shadow: 0 0 8px rgba(240, 128, 128, 0.5);
         }
-
         .modal-content::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(180deg, #ff9999, #f08080);
             box-shadow: 0 0 12px rgba(240, 128, 128, 0.8);
         }
 
         /* ========== ESTILO ORIGINAL (MANTIDO 100%) ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
         body {
             font-family: 'Cormorant Garamond', serif;
             background: #332c2b;
@@ -93,8 +65,9 @@
             font-size: 18px;
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
         }
-
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -105,8 +78,8 @@
             border: 1px solid #5e4a47;
             position: relative;
             z-index: 10;
+            touch-action: auto;
         }
-
         .header {
             text-align: center;
             color: #f08080;
@@ -114,19 +87,13 @@
             font-size: 2.6rem;
             font-weight: bold;
         }
-
-        .letter-full {
-            display: block;
-            padding: 20px;
-        }
-
+        .letter-full { display: block; padding: 20px; }
         .letter-content {
             line-height: 1.8;
             margin-bottom: 20px;
             font-size: 1.20rem;
             color: #e0dcdb;
         }
-
         .letter-date {
             font-size: 1rem;
             color: #f08080;
@@ -134,14 +101,12 @@
             margin-bottom: 10px;
             text-align: center;
         }
-
         .letter-title {
             text-align: center;
             font-size: 1.5rem;
             margin: 10px 0 25px 0;
             color: #f08080;
         }
-
         .back-button {
             display: block;
             text-align: center;
@@ -157,44 +122,22 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .back-button:hover {
             background: #f08080;
             color: white;
             transform: translateY(-2px);
         }
-
-        .hidden {
-            display: none;
-        }
+        .hidden { display: none; }
 
         @media only screen and (max-width: 414px) {
-            body {
-                padding: 15px 10px;
-                font-size: 16px;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            .header {
-                font-size: 1.8rem;
-                margin-bottom: 20px;
-            }
-
-            .letter-title {
-                font-size: 1.5rem;
-            }
-
-            .letter-content {
-                font-size: 1.1rem;
-            }
+            body { padding: 15px 10px; font-size: 16px; }
+            .container { padding: 20px; }
+            .header { font-size: 1.8rem; margin-bottom: 20px; }
+            .letter-title { font-size: 1.5rem; }
+            .letter-content { font-size: 1.1rem; }
         }
 
         /* ========== NOVAS ANIMAÇÕES E ELEMENTOS ========== */
-
-        /* Canvas para Three.js (fundo sutil) */
         #heartParticles {
             position: fixed;
             bottom: 0;
@@ -204,9 +147,8 @@
             pointer-events: none;
             z-index: 1;
             opacity: 0.6;
+            touch-action: none;
         }
-
-        /* Botão de interações */
         .interactions-btn {
             display: block;
             width: 100%;
@@ -223,31 +165,18 @@
             box-shadow: 0 4px 15px rgba(240, 128, 128, 0.4);
             animation: pulse 2s infinite;
         }
-
         .interactions-btn:hover {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 6px 20px rgba(240, 128, 128, 0.6);
         }
-
         @keyframes pulse {
-
-            0%,
-            100% {
-                box-shadow: 0 4px 15px rgba(240, 128, 128, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 4px 25px rgba(240, 128, 128, 0.8);
-            }
+            0%, 100% { box-shadow: 0 4px 15px rgba(240, 128, 128, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(240, 128, 128, 0.8); }
         }
-
-        /* Modal */
         .modal-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.7);
             display: flex;
             justify-content: center;
@@ -257,13 +186,11 @@
             visibility: hidden;
             transition: all 0.3s ease;
             padding: 20px;
+            touch-action: none;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
+        .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-content {
             background: #4a3b39;
             border-radius: 20px;
@@ -276,12 +203,10 @@
             box-shadow: 0 0 30px rgba(240, 128, 128, 0.5);
             transform: scale(0.9);
             transition: transform 0.3s ease;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
         }
-
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-
+        .modal-overlay.active .modal-content { transform: scale(1); }
         .modal-header {
             text-align: center;
             color: #f08080;
@@ -290,307 +215,135 @@
             border-bottom: 1px solid #5e4a47;
             padding-bottom: 15px;
         }
-
         .modal-close {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 15px; right: 20px;
             font-size: 1.5rem;
             color: #f08080;
             cursor: pointer;
             background: none;
             border: none;
         }
-
-        /* Love Calculator */
-        .love-calculator {
-            text-align: center;
-            padding: 15px 0;
-        }
-
+        .love-calculator { text-align: center; padding: 15px 0; }
         .love-inputs {
-            display: flex;
-            gap: 10px;
-            margin: 15px 0;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex; gap: 10px; margin: 15px 0;
+            flex-wrap: wrap; justify-content: center;
         }
-
         .love-inputs input {
-            flex: 1;
-            min-width: 120px;
-            padding: 12px;
-            border: 2px solid #5e4a47;
-            border-radius: 10px;
-            background: #332c2b;
-            color: #e0dcdb;
+            flex: 1; min-width: 120px; padding: 12px;
+            border: 2px solid #5e4a47; border-radius: 10px;
+            background: #332c2b; color: #e0dcdb;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            text-align: center;
+            font-size: 1rem; text-align: center;
         }
-
-        .love-inputs input:focus {
-            outline: none;
-            border-color: #f08080;
-        }
-
+        .love-inputs input:focus { outline: none; border-color: #f08080; }
         .love-btn {
-            background: #f08080;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin: 10px 0;
-            font-weight: bold;
+            background: #f08080; color: white; border: none;
+            padding: 12px 30px; border-radius: 25px;
+            font-size: 1rem; cursor: pointer; margin: 10px 0; font-weight: bold;
         }
-
         .love-result {
-            font-size: 3rem;
-            color: #f08080;
-            font-weight: bold;
-            margin: 15px 0;
-            text-shadow: 0 0 20px rgba(240, 128, 128, 0.8);
+            font-size: 3rem; color: #f08080; font-weight: bold;
+            margin: 15px 0; text-shadow: 0 0 20px rgba(240, 128, 128, 0.8);
         }
-
-        .love-message {
-            font-style: italic;
-            color: #a9a9a9;
-            margin-top: 10px;
-        }
-
-        /* Couple Quiz */
+        .love-message { font-style: italic; color: #a9a9a9; margin-top: 10px; }
         .quiz-reset-btn:hover {
             background: #8b6f6a;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(240, 128, 128, 0.3);
         }
-
-        .couple-quiz {
-            padding: 15px 0;
-            border-top: 1px solid #5e4a47;
-            margin-top: 20px;
-        }
-
+        .couple-quiz { padding: 15px 0; border-top: 1px solid #5e4a47; margin-top: 20px; }
         .quiz-question {
-            margin: 15px 0;
-            padding: 15px;
-            background: #332c2b;
-            border-radius: 10px;
+            margin: 15px 0; padding: 15px;
+            background: #332c2b; border-radius: 10px;
             border-left: 3px solid #f08080;
         }
-
-        .quiz-question p {
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .quiz-options {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
+        .quiz-question p { margin-bottom: 10px; font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 8px; }
         .quiz-options label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 5px;
+            display: flex; align-items: center; gap: 8px;
+            cursor: pointer; padding: 8px; border-radius: 5px;
         }
-
-        .quiz-options label:hover {
-            background: #5e4a47;
-        }
-
-        .quiz-options input {
-            accent-color: #f08080;
-        }
-
+        .quiz-options label:hover { background: #5e4a47; }
+        .quiz-options input { accent-color: #f08080; }
         .quiz-submit {
-            width: 100%;
-            background: #f08080;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 15px;
-            font-weight: bold;
+            width: 100%; background: #f08080; color: white; border: none;
+            padding: 12px; border-radius: 25px; font-size: 1rem;
+            cursor: pointer; margin-top: 15px; font-weight: bold;
         }
-
         .quiz-result {
-            margin-top: 15px;
-            padding: 15px;
-            background: #332c2b;
-            border-radius: 10px;
-            text-align: center;
-            display: none;
+            margin-top: 15px; padding: 15px;
+            background: #332c2b; border-radius: 10px;
+            text-align: center; display: none;
         }
-
-        .quiz-result.show {
-            display: block;
-            animation: bounceIn 0.5s ease;
-        }
-
+        .quiz-result.show { display: block; animation: bounceIn 0.5s ease; }
         @keyframes bounceIn {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
         }
-
-        /* Botão "Tentar de novo" estilizado */
         .quiz-reset-btn {
-            width: 100%;
-            background: #725c58;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 15px;
-            font-weight: bold;
-            display: none;
+            width: 100%; background: #725c58; color: white; border: none;
+            padding: 12px; border-radius: 25px; font-size: 1rem;
+            cursor: pointer; margin-top: 15px; font-weight: bold; display: none;
         }
-
-        .quiz-reset-btn.show {
-            display: block;
-            animation: bounceIn 0.5s ease;
-        }
-
-        .quiz-reset-btn:hover {
-            background: #8b6f6a;
-            transform: translateY(-2px);
-        }
-
-        /* Indicador de vibração ativa */
+        .quiz-reset-btn.show { display: block; animation: bounceIn 0.5s ease; }
         .vibration-indicator {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            background: #f08080;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1000;
+            position: fixed; bottom: 80px; right: 20px;
+            background: #f08080; color: white;
+            padding: 8px 15px; border-radius: 20px;
+            font-size: 0.9rem; opacity: 0;
+            transition: opacity 0.3s; z-index: 1000;
             animation: heartbeat 0.6s ease-in-out infinite;
         }
-
-        .vibration-indicator.active {
-            opacity: 1;
-        }
-
+        .vibration-indicator.active { opacity: 1; }
         @keyframes heartbeat {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
-
-        /* Botão de Controle de Música */
         .music-control {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
+            position: fixed; bottom: 20px; left: 20px;
             background: linear-gradient(135deg, #f08080, #d16565);
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
             box-shadow: 0 4px 15px rgba(240, 128, 128, 0.5);
-            cursor: pointer;
-            z-index: 1000;
+            cursor: pointer; z-index: 1000;
             border: 2px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             animation: musicPulse 2s infinite;
+            touch-action: none;
         }
-
         .music-control:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 20px rgba(240, 128, 128, 0.8);
             animation: none;
         }
-
-        .music-control:active {
-            transform: scale(0.95);
-        }
-
-        .music-icon {
-            font-size: 22px;
-            color: white;
-        }
-
+        .music-control:active { transform: scale(0.95); }
+        .music-icon { font-size: 22px; color: white; }
         @keyframes musicPulse {
-
-            0%,
-            100% {
-                box-shadow: 0 4px 15px rgba(240, 128, 128, 0.5);
-            }
-
-            50% {
-                box-shadow: 0 4px 25px rgba(240, 128, 128, 0.8),
-                    0 0 30px rgba(240, 128, 128, 0.4);
-            }
+            0%, 100% { box-shadow: 0 4px 15px rgba(240, 128, 128, 0.5); }
+            50% { box-shadow: 0 4px 25px rgba(240, 128, 128, 0.8), 0 0 30px rgba(240, 128, 128, 0.4); }
         }
-
-        /* Ajuste para mobile */
         @media only screen and (max-width: 414px) {
-            .music-control {
-                width: 50px;
-                height: 50px;
-                bottom: 15px;
-                left: 15px;
-            }
-
-            .music-icon {
-                font-size: 20px;
-            }
+            .music-control { width: 50px; height: 50px; bottom: 15px; left: 15px; }
+            .music-icon { font-size: 20px; }
         }
     </style>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Canvas para partículas Three.js -->
     <canvas id="heartParticles"></canvas>
-
-    <!-- Botão de Música -->
+    
     <div class="music-control" onclick="toggleMusic()">
         <i id="musicIcon" class="fas fa-music"></i>
     </div>
-
-    <!-- Indicador de vibração -->
+    
     <div id="vibrationIndicator" class="vibration-indicator">
         <i class="fas fa-music"></i>
     </div>
-
-    <!-- Elemento de Áudio -->
+    
     <audio id="backgroundMusic" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
@@ -599,46 +352,27 @@
         <div class="letter-full">
             <h1 class="header" id="headerName">Nicoly Gomes</h1>
             <h1 class="letter-title">Desde Que Te Conheci</h1>
-
+            
             <div class="letter-content" id="letterContent">
                 <p><span>Desde que te conheci eu soube que você seria o melhor pra mim, e eu o melhor pra você.<br>
-                        Desde que te conheci, eu descobri que o amor tem nome, tem decisão, e tem Jesus no meio.<br>
-                        Desde que te conheci o que eu mais tenho certeza é que você me faz feliz.<br>
-                        Desde que te conheci eu descobri que a felicidade tá em pequenos momentos.<br>
-                        Desde que te conheci eu vi, vi que seu sorriso quando olha pra mim é genuíno, por paixão e amor
-                        entrelaçados em uma missão cooperativa de vivência.</span></p>
+                Desde que te conheci, eu descobri que o amor tem nome, tem decisão, e tem Jesus no meio.<br>
+                Desde que te conheci o que eu mais tenho certeza é que você me faz feliz.<br>
+                Desde que te conheci eu descobri que a felicidade tá em pequenos momentos.<br>
+                Desde que te conheci eu vi, vi que seu sorriso quando olha pra mim é genuíno, por paixão e amor entrelaçados em uma missão cooperativa de vivência.</span></p>
                 <br>
-                <p><span>Desde que te conheci eu aprendi que amar não é só sentir, é escolher todos os dias permanecer,
-                        mesmo quando o dia é difícil, mesmo quando a gente tá cansado, é decidir que nós somos
-                        prioridade um do outro.</span></p>
-                <p><span>Desde que te conheci eu entendi que segurança emocional existe de verdade, porque eu posso ser
-                        vulnerável com você, posso mostrar minhas falhas, meus medos, minhas inseguranças, e mesmo assim
-                        continuo sendo amado, sem julgamento, só com cuidado</span></p>
-                <p><span>Desde que te conheci eu descobri o que é pertencimento, aquele sentimento raro de saber que
-                        existe um lugar no mundo onde eu sou esperado, lembrado, considerado, e esse lugar é no seu
-                        abraço.</span></p><br>
-                <p><span>Desde que te conheci eu percebi que o amor saudável não aperta, não sufoca, não disputa poder,
-                        ele acolhe, ele valida sentimentos, ele escuta antes de reagir, ele constrói junto, ele cresce
-                        junto, ele cura partes que nem sabíamos que estavam feridas</span></p>
-                <p><span>Desde que te conheci eu aprendi que ser amado de verdade é ser visto por inteiro, não só nas
-                        minhas qualidades, mas também nas minhas partes mais frágeis, e mesmo assim ser escolhido,
-                        reafirmado e cuidado com constância.</span></p><br>
-                <p><span>Desde que te conheci eu entendi que amor também é constância emocional, é saber que não preciso
-                        disputar espaço, nem provar valor o tempo todo, porque eu já tenho um lugar seguro no seu
-                        coração, e isso acalma a alma de um jeito que eu nunca tinha sentido antes</span></p>
-                <p><span>Desde que te conheci eu descobri que parceria é quando dois corações caminham na mesma direção,
-                        com Jesus no centro, transformando paixão em propósito, carinho em compromisso e sentimento em
-                        construção diária de uma vida inteira juntos.</span></p>
+                <p><span>Desde que te conheci eu aprendi que amar não é só sentir, é escolher todos os dias permanecer, mesmo quando o dia é difícil, mesmo quando a gente tá cansado, é decidir que nós somos prioridade um do outro.</span></p>
+                <p><span>Desde que te conheci eu entendi que segurança emocional existe de verdade, porque eu posso ser vulnerável com você, posso mostrar minhas falhas, meus medos, minhas inseguranças, e mesmo assim continuo sendo amado, sem julgamento, só com cuidado</span></p>
+                <p><span>Desde que te conheci eu descobri o que é pertencimento, aquele sentimento raro de saber que existe um lugar no mundo onde eu sou esperado, lembrado, considerado, e esse lugar é no seu abraço.</span></p><br>
+                <p><span>Desde que te conheci eu percebi que o amor saudável não aperta, não sufoca, não disputa poder, ele acolhe, ele valida sentimentos, ele escuta antes de reagir, ele constrói junto, ele cresce junto, ele cura partes que nem sabíamos que estavam feridas</span></p>
+                <p><span>Desde que te conheci eu aprendi que ser amado de verdade é ser visto por inteiro, não só nas minhas qualidades, mas também nas minhas partes mais frágeis, e mesmo assim ser escolhido, reafirmado e cuidado com constância.</span></p><br>
+                <p><span>Desde que te conheci eu entendi que amor também é constância emocional, é saber que não preciso disputar espaço, nem provar valor o tempo todo, porque eu já tenho um lugar seguro no seu coração, e isso acalma a alma de um jeito que eu nunca tinha sentido antes</span></p>
+                <p><span>Desde que te conheci eu descobri que parceria é quando dois corações caminham na mesma direção, com Jesus no centro, transformando paixão em propósito, carinho em compromisso e sentimento em construção diária de uma vida inteira juntos.</span></p>
                 <br>
                 <p><span>Te amo, hoje e sempre.</span></p>
                 <p><span>ㅤㅤJonas Augusto</span></p>
             </div>
-
-            <!-- Botão para abrir interações -->
-            <button class="interactions-btn" onclick="openModal()">
-                💕 Clique para Surpresas Interativas 💕
-            </button>
-
+            
+            <button class="interactions-btn" onclick="openModal()">💕 Clique para Surpresas Interativas 💕</button>
             <a href="index.html" class="back-button">← Voltar para as Cartas</a>
         </div>
     </div>
@@ -648,7 +382,7 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <div class="modal-header">💝 Momentos Especiais</div>
-
+            
             <!-- Love Calculator -->
             <div class="love-calculator">
                 <h3 style="color: #f08080; margin-bottom: 10px;">💕 Calculadora do Amor</h3>
@@ -660,12 +394,11 @@
                 <div class="love-result" id="loveResult">--%</div>
                 <p class="love-message" id="loveMessage"></p>
             </div>
-
+            
             <!-- Couple Quiz -->
             <div class="couple-quiz">
                 <h3 style="color: #f08080; margin-bottom: 10px;">🎯 Quiz do Casal</h3>
                 <div id="quizQuestions">
-                    <!-- Pergunta 1 -->
                     <div class="quiz-question">
                         <p>1. Onde foi nosso Primeiro Date?</p>
                         <div class="quiz-options">
@@ -674,17 +407,14 @@
                             <label><input type="radio" name="q1" value="2"> Shopping</label>
                         </div>
                     </div>
-                    <!-- Pergunta 2 -->
                     <div class="quiz-question">
                         <p>2. Qual é a nossa música?</p>
                         <div class="quiz-options">
-                            <label><input type="radio" name="q2" value="0"> this is what falling in love feels like -
-                                JVKE</label>
+                            <label><input type="radio" name="q2" value="0"> this is what falling in love feels like - JVKE</label>
                             <label><input type="radio" name="q2" value="1"> Interessante - Ferrugem</label>
                             <label><input type="radio" name="q2" value="2"> Pupila - Péricles</label>
                         </div>
                     </div>
-                    <!-- Pergunta 3 -->
                     <div class="quiz-question">
                         <p>3. O que a gente mais fala um para o outro?</p>
                         <div class="quiz-options">
@@ -693,7 +423,6 @@
                             <label><input type="radio" name="q3" value="2"> Oi te amo</label>
                         </div>
                     </div>
-                    <!-- Pergunta 4 -->
                     <div class="quiz-question">
                         <p>4. Um combinado que fizemos e nunca deixamos de fazer?</p>
                         <div class="quiz-options">
@@ -702,17 +431,15 @@
                             <label><input type="radio" name="q4" value="2"> Pular de para-quedas</label>
                         </div>
                     </div>
-                    <!-- Pergunta 5 (PEGADINHA - todas corretas) -->
                     <div class="quiz-question">
-                        <p>5. O que sempre fazemos que agrada um ao outro?</p>
+                        <p>5. O que sempre fazemos que agrada um ao outro? 🎭</p>
                         <div class="quiz-options">
                             <label><input type="radio" name="q5" value="0"> Palavras de afirmação</label>
-                            <label><input type="radio" name="q5" value="1"> Lembrancinhas praticamente o tempo
-                                todo</label>
+                            <label><input type="radio" name="q5" value="1"> Lembrancinhas praticamente o tempo todo</label>
                             <label><input type="radio" name="q5" value="2"> Se elogiar 24h por dia</label>
                         </div>
+                        <small style="color: #a9a9a9; font-style: italic; display: block; margin-top: 5px;">*Dica: essa é pegadinha, todas estão certas! 💕</small>
                     </div>
-                    <!-- Pergunta 6 -->
                     <div class="quiz-question">
                         <p>6. Quais assuntos a gente mais conversa?</p>
                         <div class="quiz-options">
@@ -726,63 +453,70 @@
                 <div class="quiz-result" id="quizResult">
                     <p id="quizScore"></p>
                     <p id="quizMessage" style="margin-top: 10px; font-style: italic;"></p>
-                    <!-- Botão "Tentar de novo?" com carinha triste -->
-                    <button class="quiz-reset-btn" id="quizResetBtn" onclick="resetQuiz()">
-                        Tentar de novo?
-                    </button>
+                    <button class="quiz-reset-btn" id="quizResetBtn" onclick="resetQuiz()">Tentar de novo? 😢</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // ========== 5. CONTROLE DE MÚSICA ==========
+        // ========== CONTROLE DE MÚSICA ==========
         const musicPlayer = document.getElementById('backgroundMusic');
         let musicStarted = false;
-
+        
         function toggleMusic() {
             const musicIcon = document.getElementById('musicIcon');
-
             if (musicPlayer.paused) {
                 musicPlayer.play().then(() => {
                     musicIcon.classList.remove('fa-music');
                     musicIcon.classList.add('fa-pause');
-
-                    // Haptic feedback ao iniciar música
-                    if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
-                }).catch(error => {
-                    console.log('Erro ao reproduzir música:', error);
-                });
+                    hapticFeedback([100, 50, 100]);
+                }).catch(error => console.log('Erro ao reproduzir música:', error));
             } else {
                 musicPlayer.pause();
                 musicIcon.classList.remove('fa-pause');
                 musicIcon.classList.add('fa-music');
-
-                // Haptic feedback ao pausar
-                if (navigator.vibrate) navigator.vibrate(50);
+                hapticFeedback(50);
             }
         }
-
-        // Iniciar música no primeiro clique (política de autoplay)
+        
         document.addEventListener('click', function initMusic() {
-            if (!musicStarted && musicPlayer.paused) {
-                // Não inicia automaticamente, só prepara
-                musicStarted = true;
-            }
+            if (!musicStarted && musicPlayer.paused) musicStarted = true;
         }, { once: true });
+        
+        musicPlayer.volume = 0.3;
 
-        // Ajustar volume
-        musicPlayer.volume = 0.3; // Volume em 30%
-        // ========== 1. THREE.JS - PARTÍCULAS DE CORAÇÃO FLUTUANTES ==========
+        // ========== FEEDBACK HÁPTICO COMPATÍVEL ==========
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+        
+        function hapticFeedback(pattern = [100]) {
+            if (navigator.vibrate) {
+                navigator.vibrate(pattern);
+            }
+            if (isIOS()) {
+                const flash = document.createElement('div');
+                flash.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(240,128,128,0.1);pointer-events:none;z-index:99999;animation:flashIOS 0.2s ease-out;`;
+                document.body.appendChild(flash);
+                setTimeout(() => flash.remove(), 200);
+            }
+        }
+        
+        const style = document.createElement('style');
+        style.textContent = `@keyframes flashIOS{0%{opacity:0}50%{opacity:1}100%{opacity:0}}`;
+        document.head.appendChild(style);
+
+        // ========== THREE.JS - PARTÍCULAS DE CORAÇÃO ==========
         function initHeartParticles() {
             const canvas = document.getElementById('heartParticles');
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 0.3, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-
+            
             renderer.setSize(window.innerWidth, window.innerHeight * 0.3);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
+            
             const heartShape = new THREE.Shape();
             const x = 0, y = 0;
             heartShape.moveTo(x + 0.25, y + 0.25);
@@ -792,54 +526,37 @@
             heartShape.bezierCurveTo(x + 0.6, y + 0.77, x + 0.8, y + 0.55, x + 0.8, y + 0.35);
             heartShape.bezierCurveTo(x + 0.8, y + 0.35, x + 0.8, y, x + 0.5, y);
             heartShape.bezierCurveTo(x + 0.35, y, x + 0.25, y + 0.25, x + 0.25, y + 0.25);
-
+            
             const geometry = new THREE.ShapeGeometry(heartShape);
-            const material = new THREE.MeshBasicMaterial({
-                color: 0xf08080,
-                transparent: true,
-                opacity: 0.7
-            });
-
+            const material = new THREE.MeshBasicMaterial({ color: 0xf08080, transparent: true, opacity: 0.7 });
+            
             const hearts = [];
-            const heartCount = 8;
-
-            for (let i = 0; i < heartCount; i++) {
+            for (let i = 0; i < 8; i++) {
                 const heart = new THREE.Mesh(geometry, material);
-                heart.position.set(
-                    (Math.random() - 0.5) * 20,
-                    Math.random() * 5,
-                    (Math.random() - 0.5) * 10
-                );
+                heart.position.set((Math.random() - 0.5) * 20, Math.random() * 5, (Math.random() - 0.5) * 10);
                 heart.scale.setScalar(0.3 + Math.random() * 0.4);
                 heart.rotation.z = Math.random() * Math.PI;
-                heart.userData = {
-                    speed: 0.001 + Math.random() * 0.002,
-                    oscillation: Math.random() * Math.PI * 2
-                };
+                heart.userData = { speed: 0.001 + Math.random() * 0.002, oscillation: Math.random() * Math.PI * 2 };
                 scene.add(heart);
                 hearts.push(heart);
             }
-
+            
             camera.position.z = 15;
             let lightPulse = 0;
-
+            
             function animate() {
                 requestAnimationFrame(animate);
                 lightPulse += 0.02;
-
                 hearts.forEach(heart => {
                     heart.userData.oscillation += heart.userData.speed;
                     heart.position.y += Math.sin(heart.userData.oscillation) * 0.01;
                     heart.rotation.z += 0.005;
-                    const pulse = 0.7 + Math.sin(lightPulse + heart.userData.oscillation * 2) * 0.1;
-                    heart.material.opacity = pulse;
+                    heart.material.opacity = 0.7 + Math.sin(lightPulse + heart.userData.oscillation * 2) * 0.1;
                 });
-
                 renderer.render(scene, camera);
             }
-
             animate();
-
+            
             window.addEventListener('resize', () => {
                 renderer.setSize(window.innerWidth, window.innerHeight * 0.3);
                 camera.aspect = window.innerWidth / (window.innerHeight * 0.3);
@@ -847,7 +564,7 @@
             });
         }
 
-        // ========== 2. ANIME.JS - ANIMAÇÕES DE ELASTICIDADE ==========
+        // ========== ANIME.JS - ELASTICIDADE ==========
         function initAnimeElasticity() {
             anime({
                 targets: '.letter-content p',
@@ -857,263 +574,130 @@
                 duration: 1200,
                 easing: 'spring(1, 80, 10, 0)'
             });
-
-            const btn = document.querySelector('.interactions-btn');
-            btn.addEventListener('touchstart', () => {
-                anime({
-                    targets: btn,
-                    scale: [1, 0.95, 1.05, 1],
-                    duration: 300,
-                    easing: 'easeInOutQuad'
-                });
+            document.querySelector('.interactions-btn')?.addEventListener('touchstart', () => {
+                anime({ targets: '.interactions-btn', scale: [1, 0.95, 1.05, 1], duration: 300, easing: 'easeInOutQuad' });
             });
         }
 
-        // ========== 3. HAPTIC FEEDBACK - VIBRAÇÃO MUSICAL (10 SEGUNDOS) ==========
+        // ========== VIBRAÇÃO MUSICAL (10 SEGUNDOS) ==========
         function initHapticFeedback() {
             const indicator = document.getElementById('vibrationIndicator');
             let vibrationInterval;
             const heartBeatPattern = [200, 100, 200, 400];
-
+            
             function startMusicalVibration() {
-                if (!navigator.vibrate) return;
+                if (!navigator.vibrate && !isIOS()) return;
                 indicator.classList.add('active');
                 const startTime = Date.now();
-                const duration = 10000;
-
                 vibrationInterval = setInterval(() => {
-                    if (Date.now() - startTime >= duration) {
-                        stopVibration();
+                    if (Date.now() - startTime >= 10000) {
+                        clearInterval(vibrationInterval);
+                        if (navigator.vibrate) navigator.vibrate(0);
+                        indicator.classList.remove('active');
                         return;
                     }
-                    navigator.vibrate(heartBeatPattern);
+                    hapticFeedback(heartBeatPattern);
                 }, 900);
             }
-
-            function stopVibration() {
-                clearInterval(vibrationInterval);
-                navigator.vibrate(0);
-                indicator.classList.remove('active');
-            }
-
-            document.addEventListener('click', () => {
-                startMusicalVibration();
-            }, { once: true });
+            document.addEventListener('click', startMusicalVibration, { once: true });
         }
 
-        // ========== 4. MODAL E INTERAÇÕES ==========
+        // ========== MODAL ==========
         function openModal() {
             const modal = document.getElementById('modalOverlay');
             modal.classList.add('active');
-            anime({
-                targets: '.modal-content',
-                scale: [0.8, 1],
-                opacity: [0, 1],
-                duration: 400,
-                easing: 'easeOutElastic(1, .8)'
-            });
-            if (navigator.vibrate) navigator.vibrate(50);
+            anime({ targets: '.modal-content', scale: [0.8, 1], opacity: [0, 1], duration: 400, easing: 'easeOutElastic(1, .8)' });
+            hapticFeedback(50);
         }
-
+        
         function closeModal(event) {
             if (event && event.target !== event.currentTarget) return;
-            const modal = document.getElementById('modalOverlay');
-            modal.classList.remove('active');
-            if (navigator.vibrate) navigator.vibrate([30, 30, 30]);
+            document.getElementById('modalOverlay').classList.remove('active');
+            hapticFeedback([30, 30, 30]);
         }
 
-        // Love Calculator
+        // ========== LOVE CALCULATOR ==========
         function calculateLove() {
             const name1 = document.getElementById('name1').value.toLowerCase().trim();
             const name2 = document.getElementById('name2').value.toLowerCase().trim();
             const resultEl = document.getElementById('loveResult');
             const messageEl = document.getElementById('loveMessage');
-
+            
             let current = 0;
-            const target = (name1 === 'jonas' && name2 === 'nicoly') ||
-                (name1 === 'nicoly' && name2 === 'jonas')
-                ? 99 : 92 + Math.floor(Math.random() * 8);
-
+            const target = (name1 === 'jonas' && name2 === 'nicoly') || (name1 === 'nicoly' && name2 === 'jonas') ? 99 : 92 + Math.floor(Math.random() * 8);
+            
             const counter = setInterval(() => {
                 current += Math.ceil((target - current) / 5);
                 if (current >= target) {
                     current = target;
                     clearInterval(counter);
-                    const messages = [
-                        "Amor verdadeiro e eterno! 💕",
-                        "Conexão divina! ✨",
-                        "Feitos um para o outro! 💍",
-                        "O destino os uniu! 🌟"
-                    ];
-                    messageEl.textContent = messages[Math.floor(Math.random() * messages.length)];
+                    messageEl.textContent = ["Amor verdadeiro e eterno! 💕", "Conexão divina! ✨", "Feitos um para o outro! 💍", "O destino os uniu! 🌟"][Math.floor(Math.random() * 4)];
                     createConfetti();
                 }
                 resultEl.textContent = current + '%';
             }, 100);
-
-            if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+            hapticFeedback([100, 50, 100]);
         }
-
+        
         function createConfetti() {
             for (let i = 0; i < 20; i++) {
                 const heart = document.createElement('div');
-                heart.className = 'heart-cursor';
                 heart.innerHTML = ['💕', '💖', '💗', '✨'][Math.floor(Math.random() * 4)];
-                heart.style.cssText = `
-            position: fixed;
-            pointer-events: none;
-            font-size: ${1 + Math.random()}rem;
-            left: ${50 + Math.random() * 40 - 20}%;
-            top: 50%;
-            animation: heartFade 1.5s ease-out forwards;
-            z-index: 9999;
-        `;
+                heart.style.cssText = `position:fixed;pointer-events:none;font-size:${1+Math.random()}rem;left:${50+Math.random()*40-20}%;top:50%;animation:heartFade 1.5s ease-out forwards;z-index:9999;`;
                 document.body.appendChild(heart);
                 setTimeout(() => heart.remove(), 1500);
             }
         }
 
-        // Couple Quiz
+        // ========== COUPLE QUIZ ==========
         function submitQuiz() {
-            // ============================================
-            // RESPOSTAS CORRETAS:
-            // Q1: value="2" → Shopping
-            // Q2: value="1" → Interessante - Ferrugem
-            // Q3: value="2" → Oi te amo
-            // Q4: value="0" → Nunca dormir brigado
-            // Q5: TODAS corretas (pegadinha ❤️)
-            // Q6: value="0" → Bíblia e fé
-            // ============================================
-
             let score = 0;
-            const totalQuestions = 6;
-
-            // Pergunta 1: Shopping = value 2
-            const q1 = document.querySelector('input[name="q1"]:checked');
-            if (q1 && parseInt(q1.value) === 2) score++;
-
-            // Pergunta 2: Interessante = value 1
-            const q2 = document.querySelector('input[name="q2"]:checked');
-            if (q2 && parseInt(q2.value) === 1) score++;
-
-            // Pergunta 3: Oi te amo = value 2
-            const q3 = document.querySelector('input[name="q3"]:checked');
-            if (q3 && parseInt(q3.value) === 2) score++;
-
-            // Pergunta 4: Nunca dormir brigado = value 0
-            const q4 = document.querySelector('input[name="q4"]:checked');
-            if (q4 && parseInt(q4.value) === 0) score++;
-
-            // Pergunta 5: PEGADINHA - TODAS corretas! Qualquer opção conta como acerto ❤️
-            const q5 = document.querySelector('input[name="q5"]:checked');
-            if (q5) score++; // Se selecionou qualquer uma, ganhou o ponto!
-
-            // Pergunta 6: Bíblia e fé = value 0
-            const q6 = document.querySelector('input[name="q6"]:checked');
-            if (q6 && parseInt(q6.value) === 0) score++;
-
-            // Calcula porcentagem
-            const percentage = Math.round((score / totalQuestions) * 100);
-
-            // Exibe resultado
+            const q1 = document.querySelector('input[name="q1"]:checked'); if (q1 && parseInt(q1.value) === 2) score++;
+            const q2 = document.querySelector('input[name="q2"]:checked'); if (q2 && parseInt(q2.value) === 1) score++;
+            const q3 = document.querySelector('input[name="q3"]:checked'); if (q3 && parseInt(q3.value) === 2) score++;
+            const q4 = document.querySelector('input[name="q4"]:checked'); if (q4 && parseInt(q4.value) === 0) score++;
+            const q5 = document.querySelector('input[name="q5"]:checked'); if (q5) score++; // Pegadinha: todas corretas!
+            const q6 = document.querySelector('input[name="q6"]:checked'); if (q6 && parseInt(q6.value) === 0) score++;
+            
+            const percentage = Math.round((score / 6) * 100);
             const resultEl = document.getElementById('quizResult');
             const scoreEl = document.getElementById('quizScore');
             const messageEl = document.getElementById('quizMessage');
             const submitBtn = document.getElementById('quizSubmitBtn');
             const resetBtn = document.getElementById('quizResetBtn');
-
+            
             scoreEl.textContent = `Você acertou ${percentage}%!`;
-
-            // ========== MENSAGENS POR FAIXA DE PONTUAÇÃO ==========
-
-            // 💔 0-33%: Dramático/Sensacionalista
-            const lowMessages = [
-                "😢 Não me ama o suficiente...",
-                "💔 Será que ainda me ama?",
-                "😭 Precisa me conhecer melhor...",
-                "💔 Me decepcionou agora...",
-                "😢 Acho que preciso te contar mais coisas...",
-                "💔 Nosso amor precisa de mais atenção...",
-            ];
-
-            // 😐 34-66%: Médio/Brincadeira
-            const mediumMessages = [
-                "😐 Até que foi mais ou menos...",
-                "🤔 Conhecemos um pouco um ao outro",
-                "😅 Podia ter sido melhor, né?",
-                "🙃 Nem tão mal, nem tão bom...",
-                "😐 Precisamos de mais dates pra memorizar!",
-                "🤨 Hmm, tenho minhas dúvidas...",
-                "😅 Quase lá, mas não é 100%...",
-            ];
-
-            // 💕 67-100%: Romântico/Doce
-            const highMessages = [
-                "Vocês se conhecem como ninguém! 💕",
-                "Conexão perfeita! ✨",
-                "O amor de vocês é especial! 💖",
-                "Continuem assim! 🌟",
-                "Isso sim é amor verdadeiro! 💑",
-                "Vocês são a definição de casal perfeito! 💕",
-                "Que lindo ver essa conexão! ✨",
-                "O amor de vocês inspira! 💖",
-                "Juntos são mais fortes! 💪",
-                "Essa sintonia é rara! 🌟"
-            ];
-
-            // Seleciona a mensagem baseada na porcentagem
-            if (percentage <= 33) {
-                messageEl.textContent = lowMessages[Math.floor(Math.random() * lowMessages.length)];
-                messageEl.style.color = "#f08080";
-            } else if (percentage <= 66) {
-                messageEl.textContent = mediumMessages[Math.floor(Math.random() * mediumMessages.length)];
-                messageEl.style.color = "#e0dcdb";
-            } else {
-                messageEl.textContent = highMessages[Math.floor(Math.random() * highMessages.length)];
-                messageEl.style.color = "#f08080";
-            }
-
-            // Mostra/Esconde botões
+            
+            const lowMessages = ["😢 Não me ama o suficiente...", "💔 Será que ainda me ama?", "😭 Precisa me conhecer melhor...", "💔 Me decepcionou agora...", "😢 Acho que preciso te contar mais coisas...", "💔 Nosso amor precisa de mais atenção..."];
+            const mediumMessages = ["😐 Até que foi mais ou menos...", "🤔 Conhecemos um pouco um ao outro", "😅 Podia ter sido melhor, né?", "🙃 Nem tão mal, nem tão bom...", "😐 Precisamos de mais dates pra memorizar!", "🤨 Hmm, tenho minhas dúvidas...", "😅 Quase lá, mas não é 100%..."];
+            const highMessages = ["Vocês se conhecem como ninguém! 💕", "Conexão perfeita! ✨", "O amor de vocês é especial! 💖", "Continuem assim! 🌟", "Isso sim é amor verdadeiro! 💑", "Vocês são a definição de casal perfeito! 💕", "Que lindo ver essa conexão! ✨", "O amor de vocês inspira! 💖", "Juntos são mais fortes! 💪", "Essa sintonia é rara! 🌟"];
+            
+            if (percentage <= 33) { messageEl.textContent = lowMessages[Math.floor(Math.random() * lowMessages.length)]; messageEl.style.color = "#f08080"; }
+            else if (percentage <= 66) { messageEl.textContent = mediumMessages[Math.floor(Math.random() * mediumMessages.length)]; messageEl.style.color = "#e0dcdb"; }
+            else { messageEl.textContent = highMessages[Math.floor(Math.random() * highMessages.length)]; messageEl.style.color = "#f08080"; }
+            
             resultEl.classList.add('show');
             submitBtn.style.display = 'none';
             resetBtn.classList.add('show');
-
-            // Haptic feedback ao finalizar
-            if (navigator.vibrate) {
-                if (percentage <= 33) {
-                    navigator.vibrate([100, 50, 100, 50, 100]); // Vibração "triste"
-                } else if (percentage >= 83) {
-                    navigator.vibrate([200, 100, 200]); // Vibração "feliz"
-                    createConfetti(); // Confetti apenas para altas pontuações
-                } else {
-                    navigator.vibrate(150); // Vibração normal
-                }
-            }
+            
+            if (percentage <= 33) hapticFeedback([100, 50, 100, 50, 100]);
+            else if (percentage >= 83) { hapticFeedback([200, 100, 200]); createConfetti(); }
+            else hapticFeedback(150);
         }
-
-        // Botão "Tentar de novo?"
+        
         function resetQuiz() {
-            document.querySelectorAll('#quizQuestions input[type="radio"]').forEach(radio => {
-                radio.checked = false;
-            });
-
+            document.querySelectorAll('#quizQuestions input[type="radio"]').forEach(radio => radio.checked = false);
             const resultEl = document.getElementById('quizResult');
             const submitBtn = document.getElementById('quizSubmitBtn');
             const resetBtn = document.getElementById('quizResetBtn');
-
+            
             resultEl.classList.remove('show');
             submitBtn.style.display = 'block';
             resetBtn.classList.remove('show');
-
             document.getElementById('quizScore').textContent = '';
             document.getElementById('quizMessage').textContent = '';
-
-            document.querySelector('.couple-quiz').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-
-            if (navigator.vibrate) navigator.vibrate(30);
+            document.querySelector('.couple-quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            hapticFeedback(30);
         }
 
         // ========== INICIALIZAÇÃO ==========
@@ -1122,11 +706,8 @@
             initAnimeElasticity();
             initHapticFeedback();
         });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
+        
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     </script>
 </body>
-
 </html>
